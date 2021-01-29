@@ -2,9 +2,19 @@ import l from './style.module.css';
 import classNames from 'classnames';
 
 const Layout = ({id, title, descr, urlBg, colorBg}) => {
-  const styleBgImg = urlBg ? {backgroundImage: `url(${urlBg})`} : {};
-  const styleBgColor = colorBg ? {backgroundColor: colorBg} : {};
-  const styleRoot = Object.assign({}, styleBgImg, styleBgColor);
+  const styleRoot = {};
+
+  if (urlBg) {
+    styleRoot.backgroundImage = `url(${urlBg}`;
+  }
+
+  if (colorBg) {
+    styleRoot.backgroundColor = colorBg;
+  }
+
+  // const styleBgImg = urlBg ? {backgroundImage: `url(${urlBg})`} : {};
+  // const styleBgColor = colorBg ? {backgroundColor: colorBg} : {};
+  // const styleRoot = Object.assign({}, styleBgImg, styleBgColor);
 
   return (
     <section
