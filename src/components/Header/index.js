@@ -3,7 +3,7 @@ import h from './style.module.css';
 const Header = ({title, descr}) => {
   return (
     <div className={h.root}>
-      <div className={h.forest}>вмяывпяывпявып</div>
+      <div className={h.forest}></div>
       <div className={h.container}>
         <h1>
           { title }
