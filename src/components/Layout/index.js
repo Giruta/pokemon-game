@@ -1,8 +1,9 @@
 import l from './style.module.css';
 import classNames from 'classnames';
 
-const Layout = ({id, title, descr, urlBg, colorBg}) => {
-  const styleRoot = {};
+const Layout = ({id, title, colorTitle, desc, urlBg, colorBg, children}) => {
+  const styleRoot = {},
+        styleTitle = {};
 
   if (urlBg) {
     styleRoot.backgroundImage = `url(${urlBg}`;
@@ -12,9 +13,9 @@ const Layout = ({id, title, descr, urlBg, colorBg}) => {
     styleRoot.backgroundColor = colorBg;
   }
 
-  // const styleBgImg = urlBg ? {backgroundImage: `url(${urlBg})`} : {};
-  // const styleBgColor = colorBg ? {backgroundColor: colorBg} : {};
-  // const styleRoot = Object.assign({}, styleBgImg, styleBgColor);
+  if (colorTitle) {
+    styleTitle.color = colorTitle;
+  }
 
   return (
     <section
@@ -25,15 +26,14 @@ const Layout = ({id, title, descr, urlBg, colorBg}) => {
       <div className={l.wrapper}>
         <article>
           <div className={l.title}>
-            <h3>
+            <h3 style={styleTitle}>
               {title}
             </h3>
             <span className={l.separator}></span>
           </div>
           <div className={classNames(l.desc, l.full)}>
-            <p>
-              {descr}
-            </p>
+            <p>{desc}</p>
+            {children}
           </div>
         </article>
       </div>
